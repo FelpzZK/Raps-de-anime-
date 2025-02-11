@@ -1,168 +1,126 @@
-/* Resetando margens e preenchimentos padrão */
-* {
+/* Estilos gerais */
+body {
+    background-color: #121212; /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Fundo escuro para o site */
-body {
-    background-color: #1c1c1c;
-    color: #fff;
-    font-family: 'Arial', sans-serif;
 }
 
 /* Cabeçalho */
 header {
-    background-color: #222;
-    color: white;
+    background-color: #3f0071; /* Roxo */
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
-header .logo h1 {
-    font-size: 2.5rem;
-    color: #FFD700; /* Cor dourada para o logo */
+header h1 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
 }
 
+/* Navegação */
 nav ul {
-    list-style-type: none;
-    display: flex;
+    list-style: none;
+    padding: 0;
 }
 
 nav ul li {
-    margin-right: 20px;
+    display: inline-block;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #FFD700; /* Hover dourado */
+    color: #ff0080; /* Cor rosa ao passar o mouse */
+}
+
+/* Barra de pesquisa */
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 20px auto;
 }
 
 .search-container input {
+    width: 100%;
     padding: 10px;
     font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+    border-radius: 25px;
+    border: 1px solid #ccc;
     background-color: #333;
-    color: white;
-    transition: background-color 0.3s ease;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .search-container input:focus {
-    background-color: #444;
-    outline: none;
+    border-color: #ff0080; /* Cor do foco */
 }
 
-/* Banner de destaque */
+.search-container input::placeholder {
+    color: #bbb;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.search-button i {
+    pointer-events: none;
+}
+
+.search-button:hover {
+    color: #ff0080;
+}
+
+/* Banner */
 .banner {
     text-align: center;
-    margin-top: 30px;
-    background-color: #444;
-    padding: 20px;
+    padding: 30px 10px;
+    background-color: #1c1c1c;
+    margin-bottom: 30px;
 }
 
 .banner h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    color: #ff0080; /* Cor rosa */
     margin-bottom: 20px;
-    color: #FFD700; /* Cor dourada */
 }
 
-.banner video {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+.banner iframe {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 8px;
 }
 
 /* Seção de vídeos populares */
 .videos-populares {
-    margin: 40px;
-    text-align: center;
+    padding: 40px 10px;
+    background-color: #212121;
 }
 
 .videos-populares h2 {
-    font-size: 2.5rem;
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
     margin-bottom: 30px;
-    color: #FFD700;
-}
-
-/* Galeria de vídeos */
-.video-gallery {
-    display: grid;
-    grid-template-columns: 1fr; /* Para telas pequenas, apenas 1 vídeo por linha */
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Estilo para o primeiro vídeo (em destaque) */
-.video-item.destaque {
-    width: 100%;  /* O primeiro vídeo ocupa toda a largura */
-    max-width: 100%;
-    margin: 0 auto;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-}
-
-.video-item {
-    text-align: center;
-    width: 100%;  /* Cada vídeo ocupa 100% da largura */
-    max-width: 100%;
-    background-color: #333;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-}
-
-/* Títulos e estatísticas dos vídeos */
-.video-title {
-    font-size: 1.2rem;
-    margin-top: 15px;
-    color: #FFD700;
-}
-
-.video-stats {
-    font-size: 1rem;
-    color: #ccc;
-}
-
-/* Responsividade - Ajustes para telas médias */
-@media (min-width: 768px) {
-    .video-gallery {
-        grid-template-columns: 1fr 1fr; /* 2 vídeos por linha em telas maiores */
-    }
-
-    .video-item.destaque {
-        grid-column: span 2;  /* O primeiro vídeo ocupa as 2 colunas */
-    }
-}
-
-/* Responsividade - Ajustes para telas grandes */
-@media (min-width: 1200px) {
-    .video-gallery {
-        grid-template-columns: 1fr 1fr 1fr; /* 3 vídeos por linha em telas maiores */
-    }
-
-    .video-item.destaque {
-        grid-column: span 3;  /* O primeiro vídeo ocupa as 3 colunas */
-    }
-}
-
-/* Rodapé */
-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    font-size: 1rem;
 }
